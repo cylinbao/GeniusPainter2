@@ -1,11 +1,11 @@
 close all; clear all;  clc;
 % clear all;
-texture = imread('img/style_B.jpg');
+texture = imread('images/style_B.jpg');
 texture = imresize(texture,1/4);
 texture = double(texture);
 % texture_blur = imgaussfilt(texture,1);
 
-content = imread('img/content.jpg');
+content = imread('images/content1.jpg');
 content_uint8 = imresize(content,1/4);
 content = double(content_uint8);
 % content_blur = imgaussfilt(content,0.5);
