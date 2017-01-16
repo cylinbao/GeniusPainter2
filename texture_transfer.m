@@ -26,25 +26,25 @@ for i=1:patchsize-overlap:blocksize(1)-patchsize+1,
         % if(i == 1 && j == 1)
         % if(i == 1 && j == 1)
             % currentpos = [i j] + blockpos;
-            %% pos = find_mindelta(texture, texture_blur, content, content_blur, output, [1 1], patchsize, overlap, tol, alpha);
+            % pos = find_mindelta(texture, texture_blur, content, content_blur, output, [1 1], patchsize, overlap, tol, alpha);
             % pos = find_mindelta(texture, texture_blur, content, content_blur, output, currentpos, patchsize, overlap, tol, alpha);
             % output(i:i+patchsize-1,j:j+patchsize-1,:) = texture(pos(1):pos(1)+patchsize-1,pos(2):pos(2)+patchsize-1,:);
         % else
             %if(i > outsize(1)-patchsize+1)
-            if(i > blocksize(1)-patchsize+1)
-                i_new = blocksize(1)-patchsize+1;
-            else
-                i_new = i;
-            end
-            if(j > blocksize(2)-patchsize+1)
-                j_new = blocksize(2)-patchsize+1;
-            else
-                j_new = j;
-            end
-            currentpos = [i_new j_new] + blockpos;
+            % if(i > blocksize(1)-patchsize+1)
+            %     i_new = blocksize(1)-patchsize+1;
+            % else
+            %     i_new = i;
+            % end
+            % if(j > blocksize(2)-patchsize+1)
+            %     j_new = blocksize(2)-patchsize+1;
+            % else
+            %     j_new = j;
+            % end
+            currentpos = [i j] + blockpos;
 
             patchpos = find_mindelta(texture, texture_blur, content, content_blur, output, currentpos, patchsize, overlap, tol, alpha);
-
+            
             output = cut(texture, patchsize, overlap, output, patchpos, currentpos);
         % end
     end
