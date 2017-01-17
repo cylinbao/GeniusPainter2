@@ -5,7 +5,7 @@ texture = imresize(texture,1/4);
 texture = double(texture);
 % texture_blur = imgaussfilt(texture,1);
 
-content = imread('images/content2.jpg');
+content = imread('images/content1.jpg');
 content_uint8 = imresize(content,1/4);
 content = double(content_uint8);
 % content_blur = imgaussfilt(content,0.5);
@@ -27,7 +27,7 @@ output = init_output(content, patchsize1, overlap1);
 
 % [block_list label_count] = get_block_list(content_uint8,Qlevels,area_th);
 
-load('block_list2.mat');
+load('block_list1.mat');
 
 tic
 wb = waitbar(0.1,'Progress');
@@ -44,11 +44,9 @@ waitbar(5/5);
 delete(wb);
 toc
 
-% outsize = [size(content, 1) size(content, 2)];
-% output = output(1:outsize(1),1:outsize(2),:);
-output2 = output/255;
+output = output/255;
 
 figure
-imshow(output2);
+imshow(output);
 
-imwrite(output2,'transfer2_F');
+imwrite(output,'transfer1_F.jpg');
